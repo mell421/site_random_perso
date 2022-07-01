@@ -1,0 +1,12 @@
+**\*.jpeg
+**\*.png
+*.png
+*.jpeg
+blame
+log
+!wordcloud/*.png
+run.R
+run.bat
+render.R
+
+.Rproj.user
