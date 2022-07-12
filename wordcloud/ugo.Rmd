@@ -349,3 +349,4 @@ plot(dfCommAll$scoreTextFrGT~factor(dfCommAll$ratingUser),xlab="note utilisateur
 
 plot(dfCommAll$scoreEngCom~factor(dfCommAll$ratingUser),xlab="note utilisateur",ylab="Score anglais",col="#FCD203")
 ```
+

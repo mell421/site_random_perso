@@ -1,0 +1,183 @@
+---
+title: "mermaid"
+output:
+  html_document:
+    df_print: paged
+    toc: true
+---
+
+```{r setup, include = FALSE}
+#devtools::install_github('rich-iannone/DiagrammeR')
+library(DiagrammeR)
+```
+
+------------------------------------------------------------------------
+
+```{r vide, echo=FALSE}
+mermaid("
+  
+")
+```
+## graph1 
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  A; B; C; D; E; F
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  1; 2; 3; 4; 5; 6; 7; 8
+
+  # several 'edge' statements
+  A->1 B->2 B->3 B->4 C->A
+  1->D E->A 2->4 1->5 1->F
+  E->6 4->6 5->7 6->7 3->8
+}
+")
+```
+## graph2 surv 1
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  1; 2; 3; 4; 5; 6; 7;9;10;12;13;14;15;17;18;19;21;24;28;29;30;32;33;35;36;37;39;41;42;43;
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  0;8; 11;16;20;22;23;25;26;27;31;34;38;40
+
+  # several 'edge' statements
+  0->0 0->1 1->2 2->3 3->4 4->5 5->6 6->7 7->8 8->9 9->10 10->11 11->12 12->13 13->14 14->15 15->16 16->17 17->18 18->19 19->20 20->21 21->22 22->23 23->24 24->25 25->26 26->27 27->28 28->29 29->30 30->31 31->32 32->33 33->34 34->35 35->36 36->37 37->38 38->39 39->40 40->41 41->42 42->43
+  0->1 0->2 0->3 0->4 0->5 0->6 0->7 
+  1->8 1->27 1->31 
+  2->8 2->20 2->25 2->27 2->31 2->34 2->40 
+  3->8 3->40 
+  4->8 4->20 4->22 4->40 
+  5->8
+  6->8 
+  7->8 7->16 7->20 7->27 7->31 7->34 7->40 
+  9->16 
+  10->11 10->20 
+  11->40 
+  12->16 12->20 12->27 12->31 12->34
+  13->16 13->20 13->23 13->25 13->34 13->40 
+  14->16 
+  15->16 15->20 15->31 
+  16->26 
+  17->20 17->26 
+  18->20 18->23 18->27 18->31 18->34 18->40 
+  19->20 19->22 19->25 19->27 19->31 
+  21->26 
+  22->26 22->34
+  23->26 23->40 
+  24->27 24->34 24->40 
+  25->26 25->31 25->34 25->40 
+  27->31 27->34 
+  28->31 28->34 28->40 
+  29->31 29->38 29->40 
+  30->31 30->34 30->38 
+  32->34 32->38 32->40 
+  33->34 33->38 33->40 
+  35->40 36->40 37->40 
+  
+  
+}
+")
+```
+## graph3 surv2
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  1; 2; 3; 4; 5; 6; 7;9;10;12;13;14;15;17;18;19;21;24;28;29;30;32;33;35;36;37;39;41;42;43;
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  0;8; 11;16;20;22;23;25;26;27;31;34;38;40
+
+  # several 'edge' statements
+  0->1 0->2 0->3 0->4 0->5 0->6 0->7 
+  1->8 2->8 3->8 4->8 5->8 6->8 7->8 
+  8->16 8->20 8->27 8->40 
+  9->16 10->11 11->20 11->40 
+  12->16 13->16 14->16 15->16 
+  16->20 16->26 
+  17->20 18->20 19->20 
+  20->22 20->23 20->25 20->26 20->27 20->31 
+  21->26 
+  22->40 22->25 22->26 
+  23->25 23->26 23->27 
+  24->27 
+  25->27 25->34 25->26 
+  26->34 26->40 26->31 
+  27->31 27->34 
+  28->31 29->31 
+  30->31 
+  31->34 31->38 32->34 33->34 
+  34->40 34->38 
+  35->40 36->40 37->40 38->40 
+  
+}
+")
+```
+## graph4 class
+```{r echo=TRUE}
+mermaid("
+  classDiagram
+Class01 <|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --> C2 : Where am i?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 <--> C2: Cool label
+")
+```
+
+```{r echo=TRUE}
+mermaid("
+  graph LR;
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
+")
+```
+
+```{r echo=TRUE}
+mermaid("
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+")
+```
