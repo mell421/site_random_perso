@@ -338,11 +338,8 @@ title("distribution des notes utilisateur")
 box()
 
 hist(dfCommAll$ratingUser)
-hist(dfCommAll$scoreEngCom)
-hist(dfCommAll$scoreEngNeg)
-hist(dfCommAll$scoreEngNeu)
-hist(dfCommAll$scoreEngPos)
-hist(dfCommAll$scoreTextFrGT)
+hist(dfCommAll$scoreEngCom, breaks=50)
+hist(dfCommAll$scoreTextFrGT, breaks=50)
 hist(dfCommAll$scoreText)
 
 plot(dfCommAll$scoreTextFrGT~factor(dfCommAll$ratingUser),xlab="note utilisateur",ylab="Score francais",col="#FCD203")
