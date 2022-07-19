@@ -309,6 +309,13 @@ suppressWarnings(tm(text))
 ### AUTRES GRAPHIQUES
 #### barplot comments
 ```{r g1 , echo=FALSE}
+library(ggplot2)
+head(dfCommAll)
+
+#ggplot(data=dfCommAll, aes(x=scoreEngCom, fill=ratingUser)) + geom_histogram()
+
+#ggplot2.histogram(data=dfCommAll, xName='scoreEngCom', groupName='ratingUser', alpha=0.5, position="stack")
+
 barplot(table(dfCommAll$ratingUser),
         las = 2,
         col =brewer.pal(8, "Dark2"), 
@@ -326,11 +333,11 @@ barplot(table(dfCommAll$ratingText),
 box()
 
 pie(table(dfCommAll$ratingUser),label=paste(names(table(dfCommAll$ratingUser)),table(dfCommAll$ratingUser),sep="-"))
-title("distribution des notes utilisateur avec comm")
+title("distribution des notes utilisateur avec commentaire")
 box()
 
 pie(table(dfSsCommAll$ratingUser),label=paste(names(table(dfSsCommAll$ratingUser)),table(dfSsCommAll$ratingUser),sep="-"))
-title("distribution des notes utilisateur sans comm")
+title("distribution des notes utilisateur sans commentaire")
 box()
 
 pie(table(dfAll$ratingUser),label=paste(names(table(dfAll$ratingUser)),table(dfAll$ratingUser),sep="-"))
@@ -340,7 +347,7 @@ box()
 hist(dfCommAll$ratingUser)
 hist(dfCommAll$scoreEngCom, breaks=50)
 hist(dfCommAll$scoreTextFrGT, breaks=50)
-hist(dfCommAll$scoreText)
+hist(dfCommAll$scoreText, breaks=50)
 
 plot(dfCommAll$scoreTextFrGT~factor(dfCommAll$ratingUser),xlab="note utilisateur",ylab="Score francais",col="#FCD203")
 
